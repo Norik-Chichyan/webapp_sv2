@@ -22,16 +22,16 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"]
 }
-#resource "aws_instance" "webapp" {
-#  ami = data.aws_ami.ubuntu.id
-#  instance_type = "t2.micro"
-#  key_name = "aws-key2"
-#  security_groups = [aws_security_group.web-sg.name]
-#  #vpc_security_group_ids = [aws_security_group.basic_security.id]
-#  tags = {
-#    Name = "webapp"
-#  }
-#}
+resource "aws_instance" "webapp" {
+  ami = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+  key_name = "aws-key2"
+  security_groups = [aws_security_group.web-sg.name]
+  #vpc_security_group_ids = [aws_security_group.basic_security.id]
+  tags = {
+    Name = "webapp"
+  }
+}
 
 resource "aws_instance" "sv2" {
   ami = data.aws_ami.ubuntu.id
