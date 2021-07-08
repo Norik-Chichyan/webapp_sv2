@@ -22,7 +22,7 @@ pipeline {
             AWS_ACCESS_KEYS = credentials('aws_cred')
             }
              steps {
-                sh 'ansiblePlaybook credentialsId: 'aws-cred-priv', installation: 'Ansible', inventory: '/webapp-sv2/inv_sv2_aws_ec2.yml', playbook: '/webapp-sv2/sv2.yml''   
+                ansiblePlaybook credentialsId: 'aws-cred-priv', installation: 'Ansible', inventory: '/webapp-sv2/inv_sv2_aws_ec2.yml', playbook: '/webapp-sv2/sv2.yml'   
             }        
         }
     }
