@@ -1,5 +1,5 @@
 pipeline {
-    agent master
+    agent any
     stages {
        stage('run ansiblefor sv2') {
             steps {
