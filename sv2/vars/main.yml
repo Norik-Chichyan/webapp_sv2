@@ -1,0 +1,6 @@
+---
+# vars file for sv2
+
+ sv2_repo: 'https://github.com/Norik-Chichyan/sv2-repo.git'
+ appfile_path: '/home/ubuntu/sv2-repo/src/main/resources/application.yml'
+ sv2_service_file_path: '/etc/systemd/system/sv2.service'

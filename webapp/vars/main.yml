@@ -1,0 +1,7 @@
+---
+# vars file for webapp
+ nodjs_setup_url:     'https://deb.nodesource.com/setup_14.x'
+ webapp_repo:         'https://github.com/Norik-Chichyan/web-app-epam.git'
+ constants_path:      '/home/ubuntu/web-app-epam/src/app/constants.ts'
+ webapp_service_path: '/etc/systemd/system/webapp.service'
+

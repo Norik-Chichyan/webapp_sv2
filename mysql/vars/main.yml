@@ -1,0 +1,5 @@
+---
+# vars file for mysql
+ mysql_root_pass: 'Aa123456'
+ mysql_db_username: 'sv2dbuser'
+ mysql_db_pass: 'sv2dbpass'

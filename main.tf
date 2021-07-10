@@ -76,7 +76,7 @@ resource "local_file" "application" {
 
 resource "null_resource" "ansible-run-sv-2" {
  provisioner "local-exec" {
-    command = "ansible-playbook -i inv_sv2_aws_ec2.yml sv2.yml"
+    command = "ansible-playbook -i inv_sv2_aws_ec2.yml --tags sv2 main.yml"
   }
   depends_on = [
 #    null_resource.cp_ssh_file,
@@ -84,9 +84,9 @@ resource "null_resource" "ansible-run-sv-2" {
   ]
 }
 
-resource "null_resource" "ansible-run-web" {
+resource "null_resource" "ansible-run-web-1" {
   provisioner "local-exec" {
-    command = "ansible-playbook -i inv_webapp_aws_ec2.yml web-app.yml"
+    command = "ansible-playbook -i inv_webapp_aws_ec2.yml --tags webapp main.yml"
   }
   depends_on = [
 #    null_resource.cp_ssh_file,

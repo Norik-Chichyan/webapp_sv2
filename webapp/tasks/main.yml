@@ -1,0 +1,62 @@
+---
+#- name: 'web-app installing with playbook'
+  #  hosts: all #'webservers'
+  #  hosts: 127.0.0.1
+# tasks file for consul install
+#  tasks:
+    - name: Update apt-get repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+      become: yes
+
+    - name: "Add nodejs"
+      shell: curl "{{ nodjs_setup_url }}" | sudo bash -
+      become: yes
+    
+    - name: 'Installing nodejs'
+      apt:
+        name: nodejs
+        state: present
+        update_cache: yes
+      become: yes
+
+    - name: check repo exist or not
+      stat:
+        path: "web-app-epam/"
+      register: repoexist
+
+    - name: git clone
+      shell: git clone "{{ webapp_repo }}"
+      when: not repoexist.stat.exists      
+   
+    - name: 'Setup webapp config'
+      template:
+        src: 'constants.tmpl'
+        dest: "{{ constants_path }}"
+
+
+    - name: install angular
+      shell: cd web-app-epam/ && npm install -g @angular/cli
+      become: yes
+    
+    - name: install angular dev-kit
+      shell: cd web-app-epam/ && npm install --save-dev @angular-devkit/build-angular
+      become: yes
+    
+    - name: 'Setup webapp service file'
+      template:
+        src: 'webapp-service'
+        dest: "{{ webapp_service_path }}"
+      become: yes
+    
+    - name: webapp service enabled
+      ansible.builtin.service:
+        name: webapp.service
+        enabled: yes
+      become: yes
+
+    - name: web service start and daemon-reload
+      ansible.builtin.service:
+        name: webapp.service
+        state: started
+        daemon_reload: yes
+      become: yes 
