@@ -74,7 +74,7 @@ resource "local_file" "application" {
 #  depends_on = [ aws_instance.webapp ]
 #}
 
-resource "null_resource" "ansible-run-sv-2" {
+resource "null_resource" "ansible-run-sv2" {
  provisioner "local-exec" {
     command = "ansible-playbook -i inv_sv2_aws_ec2.yml --tags sv2 main.yml"
   }
@@ -84,7 +84,7 @@ resource "null_resource" "ansible-run-sv-2" {
   ]
 }
 
-resource "null_resource" "ansible-run-web-1" {
+resource "null_resource" "ansible-run-web1" {
   provisioner "local-exec" {
     command = "ansible-playbook -i inv_webapp_aws_ec2.yml --tags webapp main.yml"
   }
