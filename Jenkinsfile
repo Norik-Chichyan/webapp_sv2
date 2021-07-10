@@ -17,10 +17,5 @@ pipeline {
                 sh 'terraform apply --auto-approve'   
             }        
         }
-        stage('run ansiblefor sv2') {
-            steps {
-                ansiblePlaybook credentialsId: 'aws-cred-priv', installation: 'install_web', inventory: 'inv_sv2_aws_ec2.yml', playbook: 'main.yml'   
-            }        
-        }
     }
 }
