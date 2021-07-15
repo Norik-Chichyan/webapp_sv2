@@ -14,7 +14,7 @@ pipeline {
             AWS_ACCESS_KEYS = credentials('aws_cred')
             }
             steps {
-                sh 'terraform plan --auto-approve'   
+                sh 'terraform plan'   
             }                
         }
         stage('Terraform apply') {
