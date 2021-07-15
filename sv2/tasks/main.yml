@@ -38,11 +38,11 @@
 
     - name: Running mvn clean
       shell: "cd /home/ubuntu/sv2-repo/ && mvn clean package"
-      register: mvn_result
+#      register: mvn_result
 
-    - name: "mvn clean task output"
-      debug:
-        var: mvn_result  
+#    - name: "mvn clean task output"
+#      debug:
+#        var: mvn_result  
 
     - name: 'Setup sv2 service file'
       template:
