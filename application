@@ -34,7 +34,7 @@ spring:
     - org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration
   cloud:
     consul:
-      host: 172.31.60.95
+      host: 54.189.182.223
       port: 8500
       discovery:
         hostName: ${host_ip}
@@ -44,7 +44,7 @@ spring:
     loadbalancer.ribbon.enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1/sv2db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://${host_ip}/sv2db?createDatabaseIfNotExist=true
     username: sv2dbuser
     password: sv2dbpass
   jpa:
