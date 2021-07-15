@@ -44,7 +44,7 @@ spring:
     loadbalancer.ribbon.enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${host_ip}/sv2db?createDatabaseIfNotExist=true
+    url: jdbc:mysql://127.0.0.1/sv2db?createDatabaseIfNotExist=true
     username: sv2dbuser
     password: sv2dbpass
   jpa:
