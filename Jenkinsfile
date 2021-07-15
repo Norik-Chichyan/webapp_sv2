@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'terraform init'   
             }
+        }    
         stage('Terraform plan') {
             environment {
             AWS_ACCESS_KEYS = credentials('aws_cred')
