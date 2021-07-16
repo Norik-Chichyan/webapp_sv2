@@ -14,7 +14,7 @@ pipeline {
             AWS_ACCESS_KEYS = credentials('aws_cred')
             }
             steps {
-                sh 'terraform plan -out'   
+                sh 'terraform plan'   
             }                
         }
         stage('Terraform apply') {
